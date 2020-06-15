@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './wheel.module.css'; 
 import 'font-awesome/css/font-awesome.min.css';
-import ZingTouch from 'zingtouch';
+import ZingTouch from "zingtouch/src/ZingTouch";
 
 const Wheel=()=>{
   function rotatewheel(e){
@@ -10,7 +10,7 @@ const Wheel=()=>{
     var target = document.getElementById('wheel-square-id');
     var region = new ZingTouch.Region(e.target);
    
-    region.bind(target, 'rotate', function(e) {
+    region.bind(e.target, 'rotate', function(e) {
     //   var rotatable = document.getElementById('rotatable');
       currentAngle += e.detail.distanceFromLast;
       console.log(currentAngle);
