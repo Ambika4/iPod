@@ -1,0 +1,64 @@
+.toggle{
+background: #3498db;
+height: 100px;
+width:100px;
+position:absolute;
+top:0;
+bottom: 0;
+left:0;
+right:0;
+margin:auto;
+text-align:center;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.menu{
+    background: white;
+    height:100px;
+    width:100px;
+    border-radius:50% ;
+    transform: scale(3);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: -1;
+    border: 2px solid #e74c3c;
+    transition: 0.7s;
+}
+
+.menu div {
+    display: inline-block;
+    position: absolute;
+    font-size: 15px;
+    color:black;
+    transition: 0.4s;
+
+}
+.menu div:nth-child(1){
+    top: 10px;
+    left:35px;
+}
+.menu div:nth-child(2){
+    top: 40px;
+    left:77px;
+}
+.menu div:nth-child(3){
+    top: 72px;
+    left:45px;
+}
+.menu div:nth-child(4){
+    top: 40px;
+    left: 10px;
+}
+
+.interaction {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1000;
+  }
