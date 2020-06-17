@@ -20,13 +20,13 @@ const Wheel=()=>{
 
   }
    return(
-       <div onClick={rotatewheel}className="wheel-square"id="wheel-square-id"> 
+       <div onClick={rotatewheel}className={styles.square}id="wheel-square-id"> 
         
         <div className={styles.toggle}></div>
         <div id="rotatable">
         <div  className={styles.menu}>
-        <div>Menu</div>
-        <div><i className="fa fa-fast-forward" aria-hidden="true"></i></div>
+        <div><b>Menu</b></div>
+        <div><i  className ="fa fa-fast-forward"  aria-hidden="true"></i></div>
         <div><i className="fa fa-fast-backward" aria-hidden="true"></i></div>
         <div><i className="fa fa-pause-circle-o" aria-hidden="true"></i></div>
        

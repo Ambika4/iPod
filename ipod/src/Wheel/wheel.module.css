@@ -1,7 +1,21 @@
+.square{
+    border-style: solid;
+    height: 160px;
+    width:160px;
+    position:absolute;
+    position:absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin:auto;
+    text-align:center;
+
+}
 .toggle{
 background: #3498db;
-height: 100px;
-width:100px;
+height: 50px;
+width:50px;
 position:absolute;
 top:0;
 bottom: 0;
@@ -15,8 +29,8 @@ cursor: pointer;
 
 .menu{
     background: white;
-    height:100px;
-    width:100px;
+    height:50px;
+    width:50px;
     border-radius:50% ;
     transform: scale(3);
     position: absolute;
@@ -36,23 +50,24 @@ cursor: pointer;
     font-size: 15px;
     color:black;
     transition: 0.4s;
+    font-size: 5px;
 
 }
 .menu div:nth-child(1){
-    top: 10px;
-    left:35px;
+    top: 6px;
+    left:17px;
 }
 .menu div:nth-child(2){
-    top: 40px;
-    left:77px;
+    top: 20px;
+    left:38px;
 }
 .menu div:nth-child(3){
-    top: 72px;
-    left:45px;
+    top: 35px;
+    left:20px;
 }
 .menu div:nth-child(4){
-    top: 40px;
-    left: 10px;
+    top: 20px;
+    left: 5px;
 }
 
 .interaction {
@@ -62,3 +77,7 @@ cursor: pointer;
     width: 100%;
     z-index: 1000;
   }
+  .menu div i {
+    font-size: 10px;
+}
+
