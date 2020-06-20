@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './menu.module.css'; 
 import 'font-awesome/css/font-awesome.min.css';
+
 const Menu=()=>{
    return(
        <div className={styles.square}>

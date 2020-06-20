@@ -1,26 +1,15 @@
 import React from 'react';
 import styles from './wheel.module.css'; 
 import 'font-awesome/css/font-awesome.min.css';
-import ZingTouch from "zingtouch/src/ZingTouch";
+//import ZingTouch from "zingtouch/src/ZingTouch";
 
-const Wheel=()=>{
-  function rotatewheel(e){
-    var currentAngle = 15;
-    
-    var target = document.getElementById('wheel-square-id');
-    var region = new ZingTouch.Region(e.target);
-   
-    region.bind(e.target, 'rotate', function(e) {
-    //   var rotatable = document.getElementById('rotatable');
-      currentAngle += e.detail.distanceFromLast;
-      console.log(currentAngle);
-    
-    });
-    
-
-  }
-   return(
-       <div onClick={rotatewheel}className={styles.square}id="wheel-square-id"> 
+const Wheel=(props)=>{
+    const handleOnClick=(e)=>{
+        const{onRotating}=props;
+        onRotating(e);
+    }
+      return(
+       <div onClick={handleOnClick}className={styles.square}id="wheel-square-id"> 
         
         <div className={styles.toggle}></div>
         <div id="rotatable">
