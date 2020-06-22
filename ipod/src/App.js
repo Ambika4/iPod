@@ -2,6 +2,10 @@ import React from 'react';
 import Wheel from './Wheel/wheel';
 import Menu from './Menu/Menu';
 import ZingTouch from "zingtouch/src/ZingTouch";
+import CoverFlow from './coverFlow/coverFlow';
+import Games from './Games/Games';
+import Setting from './setting/Setting';
+import Music from './Music/music'
 
 class App extends React.Component{
   constructor(){
@@ -29,39 +33,39 @@ class App extends React.Component{
     //   var rotatable = document.getElementById('rotatable');
       currentAngle = e.detail.distanceFromOrigin;
       console.log(currentAngle);
-      if(currentAngle%360>90)
+      if(currentAngle%360<=90)
       {
        
        // console.log(value.showGames);
-         value.state.showGames=true;
-         value.state.showCoverflow=false;
+         value.state.showGames=false;
+         value.state.showCoverflow=true;
          value.state.showSetting=false;
          value.state.showMusic=false;
         
-      }else if(currentAngle%360>180)
+      }else if(currentAngle%360>90 && currentAngle%360<=180)
       {
         //music:true
         
         value.state.showGames=true;
          value.state.showCoverflow=false;
          value.state.showSetting=false;
-         value.state.showMusic=true;
+         value.state.showMusic=false;
        
-      }else if(currentAngle%360>270)
+      }else if(currentAngle%360<=270 && currentAngle%360>180)
       {
        
         
-        value.state.showGames=true;
+        value.state.showGames=false;
         value.state.showCoverflow=false;
-        value.state.showSetting=true;
-        value.state.showMusic=false;
+        value.state.showSetting=false;
+        value.state.showMusic=true;
          
       }else{
         
         
-        value.state.showGames=true;
-        value.state.showCoverflow=true;
-        value.state.showSetting=false;
+        value.state.showGames=false;
+        value.state.showCoverflow=false;
+        value.state.showSetting=true;
         value.state.showMusic=false;
         
       }
@@ -80,13 +84,29 @@ class App extends React.Component{
   
 }
 
+handleSelectMenuItem=()=>{
+  
+  this.setState({
+    showMenu:true
+  })
+  
+}
+
 render(){
-  const {currentAngle}=this.state;
+  const {showMenu,showCoverflow,showGames,showMusic,showSetting}=this.state;
   return (
         <div className="App">
-          <Menu currentAngle={currentAngle} />
+          {true?<Music/>:
+          <Menu
+          showMenu={showMenu} 
+          showCoverflow={showCoverflow}
+          showGames={showGames}
+          showMusic={showMusic}
+          showSetting={showSetting}
+          />}
           <Wheel 
-          onRotating={this.rotateWheel}/>
+          onRotating={this.rotateWheel}
+          onSelectMenuItem={this.handleSelectMenuItem}/>
         </div>
       );
   }

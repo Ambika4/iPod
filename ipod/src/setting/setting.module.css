@@ -1,0 +1,17 @@
+.square{
+    border-style: solid;
+    height: 160px;
+    width:160px;
+    position:absolute;
+    left:567px;
+    top:70px;
+   
+}
+
+.square img{
+    height:160 px;
+    width:160px;
+    padding-bottom: 20px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
