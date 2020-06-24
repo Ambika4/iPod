@@ -5,7 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const Menu=(props)=>{
   
     
-   const {showMenu,showCoverflow,showGames,showMusic,showSetting}=props;
+   const {showCoverflow,showGames,showMusic,showSetting}=props;
 
   const setActiveClass=()=>{
        

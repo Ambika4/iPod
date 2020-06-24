@@ -20,7 +20,7 @@ const Wheel=(props)=>{
         <div className={styles.toggle}></div>
         <div id="rotatable">
         <div  className={styles.menu}>
-        <div ><b>Menu</b></div>
+        <div><b>Menu</b></div>
         <div><i  className ="fa fa-fast-forward"  aria-hidden="true"></i></div>
         <div><i className="fa fa-fast-backward" aria-hidden="true"></i></div>
         <div><i className="fa fa-pause-circle-o" aria-hidden="true"></i></div>

@@ -11,11 +11,14 @@ class App extends React.Component{
   constructor(){
     super();
     this.state={
-        showMenu:false,
+        showMenu:true,
         showCoverflow:false,
         showGames:false,
         showMusic:false,
-        showSetting:false
+        showSetting:false,
+        showAllSongs:false,
+        showArtist:false,
+        showAlbums:false
       //show
         
     }
@@ -33,77 +36,109 @@ class App extends React.Component{
     //   var rotatable = document.getElementById('rotatable');
       currentAngle = e.detail.distanceFromOrigin;
       console.log(currentAngle);
-      if(currentAngle%360<=90)
-      {
-       
-       // console.log(value.showGames);
-         value.state.showGames=false;
-         value.state.showCoverflow=true;
-         value.state.showSetting=false;
-         value.state.showMusic=false;
+      //condition for showMenu
+      if(value.state.showMenu===true){
+        if(currentAngle%60<=15)
+        {
+        // console.log(value.showGames);
+          value.state.showGames=false;
+          value.state.showCoverflow=true;
+          value.state.showSetting=false;
+          value.state.showMusic=false;
+          
+        }else if(currentAngle%60>15 && currentAngle%60<=30)
+        {
+          //music:true
+          value.state.showGames=true;
+          value.state.showCoverflow=false;
+          value.state.showSetting=false;
+          value.state.showMusic=false;
         
-      }else if(currentAngle%360>90 && currentAngle%360<=180)
-      {
-        //music:true
-        
-        value.state.showGames=true;
-         value.state.showCoverflow=false;
-         value.state.showSetting=false;
-         value.state.showMusic=false;
-       
-      }else if(currentAngle%360<=270 && currentAngle%360>180)
-      {
-       
-        
-        value.state.showGames=false;
-        value.state.showCoverflow=false;
-        value.state.showSetting=false;
-        value.state.showMusic=true;
-         
-      }else{
-        
-        
-        value.state.showGames=false;
-        value.state.showCoverflow=false;
-        value.state.showSetting=true;
-        value.state.showMusic=false;
-        
+        }else if(currentAngle%60<=45 && currentAngle%60>30)
+        {
+          value.state.showGames=false;
+          value.state.showCoverflow=false;
+          value.state.showSetting=false;
+          value.state.showMusic=true;
+          
+        }else{
+          
+          
+          value.state.showGames=false;
+          value.state.showCoverflow=false;
+          value.state.showSetting=true;
+          value.state.showMusic=false;
+          
+        }
       }
-     
+      if(value.state.showMusic===true){
+        if(currentAngle%45<=15)
+        {
+        // console.log(value.showGames);
+          value.state.showAllSongs=true;
+          value.state.showArtist=false;
+          value.state.showAlbums=false;
+ 
+        }else if(currentAngle%45>15 && currentAngle%45<=30){
+          value.state.showAllSongs=false;
+          value.state.showArtist=true;
+          value.state.showAlbums=false;
+        }else{
+          value.state.showAllSongs=false;
+          value.state.showArtist=false;
+          value.state.showAlbums=true;
+        }
+      }
     });
-    // console.log(value.state);
+    
     //the value of var value is lost but inside the region.bind  it is working
     this.setState({
       showCoverflow:value.state.showCoverflow,
       showGames:value.state.showGames,
       showMusic:value.state.showMusic,
-      showSetting:value.state.showSetting
+      showSetting:value.state.showSetting,
+      showAllSongs:value.state.showAllSongs,
+      showAlbums:value.state.showAlbums,
+      showArtist:value.state.showArtist
     })
-   console.log("this.state",this.state);
+  
   return currentAngle;
   
 }
 
 handleSelectMenuItem=()=>{
-  
-  this.setState({
-    showMenu:true
-  })
-  
+  if(this.state.showMenu===false){
+    this.setState({
+      showMenu:true
+    })
+  }
+  else{
+    this.setState({
+      showMenu:false
+    })
+  }
 }
 
 render(){
-  const {showMenu,showCoverflow,showGames,showMusic,showSetting}=this.state;
+  const {showMenu,showCoverflow,showGames,showMusic,showSetting,showAllSongs,showArtist,showAlbums}=this.state;
   return (
+
         <div className="App">
-          {true?<Music/>:
+          {(false?
           <Menu
-          showMenu={showMenu} 
+         
           showCoverflow={showCoverflow}
           showGames={showGames}
           showMusic={showMusic}
-          showSetting={showSetting}
-          />}
+          showSetting={showSetting}/>
+          :(showCoverflow?<CoverFlow/>
+          :(showGames?<Games/>
+          :(showSetting?<Setting/>
+          :<Music
+           showAllSongs={showAllSongs}
+           showArtist={showArtist}
+           showAlbums={showAlbums}
+          />))))}
           <Wheel 
           onRotating={this.rotateWheel}
           onSelectMenuItem={this.handleSelectMenuItem}/>
