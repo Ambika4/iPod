@@ -6,9 +6,10 @@ const Menu=(props)=>{
   
     
    const {showCoverflow,showGames,showMusic,showSetting}=props;
+//    console.log(props);
 
   const setActiveClass=()=>{
-       
+
        
         var CoverFlow = document.getElementById("coverFlow");
         var games = document.getElementById("games");
@@ -38,6 +39,7 @@ const Menu=(props)=>{
         
         if(showSetting===true)
         {
+            console.log(Setting);
         Setting.className=styles.active;
         Music.className=" ";
         games.className=" ";
@@ -46,17 +48,16 @@ const Menu=(props)=>{
    }
    
    return(
-       <div className={styles.square}>{
-          setActiveClass()
-       }
+       <div className={styles.square}>
         <ul className="list" >
-            <li  id="coverFlow" className={styles.active} >CoverFlow</li>
+            <li id="coverFlow" className={styles.active} >CoverFlow</li>
             <li id="games">Games</li>
             <li id="Music">Music</li>
             <li id="Setting">Setting</li>
         </ul>
-
+        {setActiveClass()}
        </div>
+       
    )
     }
 export default Menu;

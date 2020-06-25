@@ -110,21 +110,28 @@ handleSelectMenuItem=()=>{
   if(this.state.showMenu===false){
     this.setState({
       showMenu:true
+
     })
+    console.log("true",this.state.showMenu);
   }
   else{
     this.setState({
       showMenu:false
+      
     })
+    console.log("false",this.state.showMenu);
   }
+ 
 }
 
 render(){
   const {showMenu,showCoverflow,showGames,showMusic,showSetting,showAllSongs,showArtist,showAlbums}=this.state;
+  console.log("setting ",showSetting);
+  console.log("Menu ",showMenu);
   return (
-
+       
         <div className="App">
-          {(false?
+          {(showMenu?
           <Menu
          
           showCoverflow={showCoverflow}
