@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Artist.module.css'; 
+import styles from '../ipod.module.css'; 
 import 'font-awesome/css/font-awesome.min.css';
 
 const Artist=()=>{
  
    return(
-       <div className={styles.square}>
+       <div className={styles.screen}>
         <ul className="list" >
             <li>Sonu Nigam</li>
             <li >Joe Jones</li>

@@ -1,61 +1,21 @@
 import React from 'react';
-import styles from './menu.module.css'; 
+import styles from '../ipod.module.css'; 
 import 'font-awesome/css/font-awesome.min.css';
+
 
 const Menu=(props)=>{
   
     
-   const {showCoverflow,showGames,showMusic,showSetting}=props;
-//    console.log(props);
-
-  const setActiveClass=()=>{
-
-       
-        var CoverFlow = document.getElementById("coverFlow");
-        var games = document.getElementById("games");
-        var Music = document.getElementById("Music");
-        var Setting= document.getElementById("Setting");
-        if(showCoverflow===true)
-        {
-        CoverFlow.className=styles.active;
-        games.className=" ";
-        Music.className=" ";
-        Setting.className=" ";
-        }
-        if(showGames===true)
-        {
-        games.className=styles.active;
-        CoverFlow.className=" ";
-        Music.className=" ";
-        Setting.className=" ";
-        }
-        if(showMusic===true)
-        {
-        Music.className=styles.active;
-        games.className=" ";
-        CoverFlow.className=" ";
-        Setting.className=" ";
-        }
-        
-        if(showSetting===true)
-        {
-            console.log(Setting);
-        Setting.className=styles.active;
-        Music.className=" ";
-        games.className=" ";
-        CoverFlow.className=" ";
-        }
-   }
-   
+   const {showGames,showMusic,showSetting}=props;
    return(
-       <div className={styles.square}>
-        <ul className="list" >
-            <li id="coverFlow" className={styles.active} >CoverFlow</li>
-            <li id="games">Games</li>
-            <li id="Music">Music</li>
-            <li id="Setting">Setting</li>
+       <div className={styles.screen}>
+        <ul >
+            <li  className={(showGames||showMusic||showSetting)?"":styles.active} >CoverFlow</li>
+            <li  className={showGames?styles.active:""}>Games</li>
+            <li  className={showMusic?styles.active:""}>Music</li>
+            <li  className={showSetting?styles.active:""}>Setting</li>
         </ul>
-        {setActiveClass()}
+        {/* {setActiveClass()} */}
        </div>
        
    )

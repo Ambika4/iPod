@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Albums.module.css'; 
+import styles from '../ipod.module.css'; 
 import 'font-awesome/css/font-awesome.min.css';
 
 const Albums=()=>{
  
    return(
-       <div className={styles.square}>
+       <div className={styles.screen}>
         <ul className="list" >
             <li>Happiness Begins</li>
             <li >Reputation</li>
