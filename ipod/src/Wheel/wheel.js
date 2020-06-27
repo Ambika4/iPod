@@ -1,19 +1,21 @@
 import React from 'react';
 import styles from '../ipod.module.css'; 
 import 'font-awesome/css/font-awesome.min.css';
-//import ZingTouch from "zingtouch/src/ZingTouch";
+
 
 const Wheel=(props)=>{
-    
+    //function for rotation received it via props
     const handleOnClick=(e)=>{
         
       //onSelectMenuItem();
        props.onRotating(e);
     }
+    //function to select menu,received it via props
     const handleOnClickMenu=(e)=>{
      
         props.onSelectMenu()
     }
+     //function to select items,received it via props
     const handleOnClickItem=(e)=>{
      
       props.onSelectItem()
@@ -21,7 +23,7 @@ const Wheel=(props)=>{
       return(
           
       
-  <div onClick={handleOnClick}className={styles.button}>
+  <div id="wheel-square-id"onClick={handleOnClick}className={styles.button}>
 				<div onClick={handleOnClickMenu} className={styles.menu}>MENU</div>
 				
 				<div className={styles.next} >

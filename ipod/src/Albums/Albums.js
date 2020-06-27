@@ -5,6 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const Albums=()=>{
  
    return(
+    //    screen for Album list
        <div className={styles.screen}>
         <ul className="list" >
             <li>Happiness Begins</li>

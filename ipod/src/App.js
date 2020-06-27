@@ -32,18 +32,22 @@ class App extends React.Component{
   
   var currentAngle=0;
     
+  //taking target as div element of wheel
     var target = document.getElementById('wheel-square-id');
+    //using Zing touch for rotation
     var region = new ZingTouch.Region(e.target);
     
+
+    //As this will be lost inside region.bind function so assigning it to other var 
     var value= this;
    
     region.bind(e.target, 'rotate', function(e) {
-    //   var rotatable = document.getElementById('rotatable');
       currentAngle = e.detail.distanceFromOrigin;
     
-    
+      //taking abs value 
       currentAngle=Math.abs(currentAngle);
-      console.log(currentAngle)
+     
+      //if showMenu will be true then only change the menu items
       if(value.state.showMenu===true){
         if(currentAngle%60>45 && currentAngle%60<60)
         {
@@ -78,7 +82,8 @@ class App extends React.Component{
           
         }
       }
-      if(value.state.showMusic===true){
+      //if showMusic will be true then change item inside Music
+    else{
         if(currentAngle%45>=0 && currentAngle%45<=15)
         {
         // console.log(value.showGames);
@@ -98,7 +103,7 @@ class App extends React.Component{
       }
     });
     
-    //the value of var value is lost but inside the region.bind  it is working
+    //setting state for rerendering elements after rotation
     this.setState({
       showCoverflow:value.state.showCoverflow,
       showGames:value.state.showGames,
@@ -113,12 +118,15 @@ class App extends React.Component{
   
 }
 
+//function for handling state showMenu 
 handleShowMenu=()=>{
+
+  //if not inside Music Menu then only set true Main Menu
   if(this.state.showMusicMenu===false){
     this.setState({
       showMusicMenu:true
     })
-  }
+  }//if inside Music Menu thenset true Music Menu true
   else{
     this.setState({
       showMenu:true
@@ -126,13 +134,16 @@ handleShowMenu=()=>{
     })
   }
 }
+//function for showing Menu items
 handleShowItem=()=>{
+  //if inside Music Menu then need to set false MusicMenu ,so that, can see Music items
   if(this.state.showMusic===true && this.state.showMenu===false)
   {
     this.setState({
       showMusicMenu:false
     })
   }
+  //any condition showMenu will be false while seeing items
   this.setState({
     showMenu:false
   })
@@ -140,16 +151,16 @@ handleShowItem=()=>{
 
 render(){
   
-  console.log(this.state)
   return (
     
     <div className={styles.container}>
-    <div className={styles.phonecase}> 	
-       <div className={styles.phonetop}>
-         <div className={styles.camera}></div>
-       </div>
+      <div className={styles.phonecase}> 	
+        <div className={styles.phonetop}>
+          <div className={styles.camera}></div>
+        </div>
        
         <div className="App">
+        {/* using ternary operator to decide which component should render basis of they are true */}
           {(this.state.showMenu?
           <Menu
           showGames={this.state.showGames}
@@ -165,13 +176,14 @@ render(){
            :(this.state.showAllSongs?<AllSongs/>
            :(this.state.showArtist?<Artist/>
            :<Albums/>)))))))}
+           {/* in all case wheel will be visible */}
           <Wheel 
           onRotating={this.rotateWheel}
           onSelectMenu={this.handleShowMenu}
           onSelectItem={this.handleShowItem}/>
         </div>
         </div>
-        </div>
+    </div>
       );
   }
 }

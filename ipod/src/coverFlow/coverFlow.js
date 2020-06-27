@@ -5,7 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const coverFlow=()=>{
   
    return(
-     
+     //screen for coverflow
        <div className={styles.screen}>
        <img 
        alt="coverFlow"

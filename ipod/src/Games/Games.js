@@ -5,6 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const Games=()=>{
   console.log("Inside games")
    return(
+     //screen for games
        <div className={styles.screen}>
        <img 
        alt="Games"

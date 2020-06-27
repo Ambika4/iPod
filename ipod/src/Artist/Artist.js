@@ -5,6 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const Artist=()=>{
  
    return(
+       //screen for artist
        <div className={styles.screen}>
         <ul className="list" >
             <li>Sonu Nigam</li>

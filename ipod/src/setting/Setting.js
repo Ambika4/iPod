@@ -5,6 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const Setting=()=>{
   
    return(
+       //screen for setting
        <div className={styles.screen}>
        <img 
        alt="Setting"
